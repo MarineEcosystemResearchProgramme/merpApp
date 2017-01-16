@@ -8,8 +8,6 @@ library(ggplot2)
 library(ggmap)
 library(reshape2)
 
-r_colors <- rgb(t(col2rgb(colors()) / 255))
-names(r_colors) <- colors()
 alldatasets <- get_cefas_datasets()
 alldatasets <- alldatasets$to_download
 param <- alldatasets$Name
