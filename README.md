@@ -14,7 +14,7 @@ merpApp can be run locally on a computer running R
 
 ``` r
 library(shiny)
-runGitHub("MarineEcosystemReseachProgramme/merpApp")
+runGitHub("MarineEcosystemResearchProgramme/merpApp")
 ```
 
 Development

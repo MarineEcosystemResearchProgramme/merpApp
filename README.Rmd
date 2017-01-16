@@ -21,7 +21,7 @@ in packages merpData and merpWS.
 merpApp can be run locally on a computer running R
 ```{r, echo = TRUE, eval = FALSE}
 library(shiny)
-runGitHub("MarineEcosystemReseachProgramme/merpApp")
+runGitHub("MarineEcosystemResearchProgramme/merpApp")
 ```
 
 ## Development
