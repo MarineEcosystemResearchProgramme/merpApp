@@ -13,7 +13,7 @@ alldatasets <- alldatasets$to_download
 param <- alldatasets$Name
 mychoices <- c("SWT02 - Fishing Survey System", "SWT05 - Ecology Research Programme",
                "SWT12 - Mnemiopsis", "SWT17 - ESM2")
-mymonths <- c("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12")
+mymonths <- c("07", "08", "09", "10", "11", "12")
 meanr <- function(x) mean(x, na.rm = T)
 
 myfilter <- function(mydata, latrange, lonrange, nb){
@@ -51,8 +51,8 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       sliderInput("slidertimerange", label = "Time range", min = 1950, max = 2016, value = c(1980, 2010)),
-      sliderInput("sliderlonrange2", label = "Longitudinal range", min = -20, max = 20, value = c(2, 10)),
-      sliderInput("sliderlatrange2", label = "Latitudinal range", min = 40, max = 80, value = c(50, 70)),
+      sliderInput("sliderlonrange2", label = "Longitudinal range", min = -20, max = 20, value = c(-2, 10)),
+      sliderInput("sliderlatrange2", label = "Latitudinal range", min = 40, max = 80, value = c(52, 60)),
       selectInput("month", label = "Month", choices = mymonths),
       # sliderInput("myresolution", label = "Each time series corresponds to a square cell of", min = 0.5, max = 10, value = 1),
       sliderInput("mysmoother", label = "Smoothing", min = 0.1, max = 2, value = 0.5),
@@ -114,7 +114,7 @@ server <- function(input, output, session) {
       geom_smooth(span = input$mysmoother, se = TRUE) +
       labs(x = "Year", y = "Mean temperature") +
       theme(axis.text = element_text(size = 14), axis.title = element_text(size = 14),
-            panel.grid.minor = element_blank(), panel.background = element_rect(fill = "white"))
+            panel.grid.minor = element_blank())
   })
   
 }
