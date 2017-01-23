@@ -1,7 +1,6 @@
 library(shiny)
 library(leaflet)
 library(merpWS)
-library(merpData)
 library(jsonlite)
 library(magrittr)
 library(ggplot2)
