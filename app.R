@@ -54,7 +54,7 @@ ui <- fluidPage(
       sliderInput("sliderlatrange2", label = "Latitudinal range", min = 40, max = 80, value = c(52, 60)),
       selectInput("month", label = "Month", choices = mymonths),
       # sliderInput("myresolution", label = "Each time series corresponds to a square cell of", min = 0.5, max = 10, value = 1),
-      sliderInput("mysmoother", label = "Smoothing", min = 0.1, max = 2, value = 0.5),
+      sliderInput("mysmoother", label = "Smoothing", min = 0.1, max = 1, value = 0.5),
       width = 4
     ), 
     
@@ -110,7 +110,7 @@ server <- function(input, output, session) {
     
     ggplot(data = mydf, aes(x = myears, y = tC)) +
       geom_point() +
-      geom_smooth(span = input$mysmoother, se = TRUE) +
+      geom_smooth(span = input$mysmoother, se = TRUE, method = "loess") +
       labs(x = "Year", y = "Mean temperature") +
       theme(axis.text = element_text(size = 14), axis.title = element_text(size = 14),
             panel.grid.minor = element_blank())
